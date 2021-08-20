@@ -1,17 +1,24 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
-import App from './App';
+import App from './App/App';
 import reportWebVitals from './reportWebVitals';
+import {Provider} from 'react-redux'
+import {createStore,combineReducers} from 'redux'
+import { homePageReducer,layoutReducer,postsPageReducer } from './redux_store/store'
+
+const globalStore=createStore(combineReducers({
+   home_page_reducer:homePageReducer,
+   posts_page_reducer:postsPageReducer,
+   layout_reducer:layoutReducer
+}))
 
 ReactDOM.render(
   <React.StrictMode>
-    <App />
+    <Provider store={globalStore}>
+       <App/>
+    </Provider>
   </React.StrictMode>,
   document.getElementById('root')
 );
-
-// If you want to start measuring performance in your app, pass a function
-// to log results (for example: reportWebVitals(console.log))
-// or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals
 reportWebVitals();
