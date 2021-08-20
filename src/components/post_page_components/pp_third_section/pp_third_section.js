@@ -99,7 +99,7 @@ function PP_Third_Section(props){
                                 <option value="Kartik"/>
                                 <option value="Naveen"/>
                                 </datalist>
-                                <input className={classes.byStatusSelect} list="status" name="status" id="status" placeholder="By status"/>
+                                <input className={classes.byStatusSelect} list="status" name="status" id="status-1" placeholder="By status"/>
                                 <datalist id="status">
                                 <option value="Active"/>
                                 <option value="Pending"/>
