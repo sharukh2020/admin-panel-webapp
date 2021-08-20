@@ -40,6 +40,7 @@ export const postsPageReducer=(prevState=postsPageStore,action)=>{
     return{...prevState}
 }
 let layoutStore={
+    screenWidth:window.screen.availWidth,
     sideBarUpperLinks:[
         {
           name:'Dashboard',
@@ -92,6 +93,9 @@ let layoutStore={
 }
 
 export const layoutReducer=(prevState=layoutStore,action)=>{
+    if(action.type==='update screen width'){
+        return{...prevState,screenWidth:action.width}
+    }
     return{...prevState}
 }
 

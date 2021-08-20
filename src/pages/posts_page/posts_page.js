@@ -7,6 +7,12 @@ import PPThirdSection from '../../components/post_page_components/pp_third_secti
 
 const useStyles=makeStyles((theme)=>{
     return{
+        PostsPage:{
+          // [theme.breakpoints.down('sm')]:{
+          //   width:window.innerWidth,
+          // },
+          // boxSizing:'border-box'
+        },
         secondSection:{
           backgroundColor:'#FFFFFF',
           borderRadius:'5px'

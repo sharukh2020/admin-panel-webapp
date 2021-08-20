@@ -5,7 +5,7 @@ import RecipeReviewCard from '../../components/create_post_page_components/cpp_r
 
 const useStyles=makeStyles((theme)=>({
     PostPage:{
-   
+     
     },
     rightSection:{
         display:'flex',

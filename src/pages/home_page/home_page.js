@@ -3,8 +3,15 @@ import React from 'react'
 import HPLeftSection from '../../components/home_page_components/hp_left_section/hp_left_section'
 import HPRightSection from '../../components/home_page_components/hp_right_section/hp_right_section'
 
+
 const useStyles=makeStyles((theme)=>{
   return{
+    HomePage:{
+        // [theme.breakpoints.down('sm')]:{
+        //   width:window.innerWidth
+        // },
+        // boxSizing:'border-box'
+    },
     heading:{
         fontWeight:'600'
     }

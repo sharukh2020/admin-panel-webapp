@@ -7,7 +7,8 @@ import TableContainer from '@material-ui/core/TableContainer';
 import TableHead from '@material-ui/core/TableHead';
 import TableRow from '@material-ui/core/TableRow';
 import Paper from '@material-ui/core/Paper';
-import { Avatar, Button, Card, CardHeader, Icon,Typography } from '@material-ui/core';
+import { Avatar, Button, Card, CardHeader,Typography } from '@material-ui/core';
+import NotInterestedIcon from '@material-ui/icons/NotInterested';
 
 const StyledTableCell = withStyles((theme) => ({
   head: {
@@ -26,45 +27,81 @@ const StyledTableRow = withStyles((theme) => ({
   },
 }))(TableRow);
 
-function createData(user, status,phoneNumber,date,Form,documents,paymentLink) {
-  return {  user, status,phoneNumber,date,Form,documents,paymentLink };
+function createData(user, status,phoneNumber,date,cardNumber,action) {
+  return {  user, status,phoneNumber,date,cardNumber,action };
 }
 
 const rows = [
-  createData('Merril Dinz',{status:'Verifying',class:'verifying'},'9999999999',{date:'08.01.2021',time:'2:00 PM'}),
-  createData('Merril Dinz',{status:'Approved',class:'approved'},'9999999999',{date:'08.01.2021',time:'2:00 PM'}),
-  createData('Merril Dinz',{status:'Rejected',class:'rejected'},'9999999999',{date:'08.01.2021',time:'2:00 PM'}),
-  createData('Merril Dinz',{status:'Incomplete',class:'incomplete'},'9999999999',{date:'08.01.2021',time:'2:00 PM'}),
-  createData('Merril Dinz',{status:'verifying',class:'verifying'},'9999999999',{date:'08.01.2021',time:'2:00 PM'})
+  createData('Merril Dinz',{status:'KYC',class:'kyc'},'9999999999','08.01.2021','1111 1111 1111 1111'),
+  createData('Merril Dinz',{status:'Active User',class:'active'},'9999999999','08.01.2021','1111 1111 1111 1111'),
+  createData('Merril Dinz',{status:'Active User',class:'active'},'9999999999','08.01.2021','1111 1111 1111 1111'),
+  createData('Merril Dinz',{status:'Started',class:'started'},'9999999999','08.01.2021','1111 1111 1111 1111')
 ];
 
-const useStyles = makeStyles({
+const useStyles = makeStyles((theme)=>({
   table: {
     minWidth: 250,
+  },
+  phoneNumberCell:{
+    [theme.breakpoints.down('md')]:{
+      display:'none'
+    }
+  },
+  blockBtnCell:{
+    [theme.breakpoints.down('md')]:{
+      display:'none'
+    }
+  },
+  cardNumberCell:{
+    [theme.breakpoints.down('sm')]:{
+      display:'none'
+    }
   },
   uploadInput:{
     display:'none'
   },
-  verifying:{
-    backgroundColor:'#FEC400',
-    color:'white'
+  kyc:{
+    background:'rgba(255, 172, 50, 0.1)',
+    color:'#FFB648'
   },
-  approved:{
-    backgroundColor:'#55BB59',
-    color:'white'
+  active:{
+    background: 'rgba(88, 135, 255, 0.1)',
+    color:'#5887FF'
   },
-  rejected:{
-    backgroundColor:'#E13E3E',
-    color:'white'
-  },
-  incomplete:{
-    background: 'rgba(254, 196, 0, 0.15)',
-    color:'#FFAD47'
+  started:{
+    background: 'rgba(85, 187, 89, 0.1)',
+    color:'#55BB59'
   },
   phoneNumber:{
     color:'#767676',
     fontSize:'14px',
     fontWeight:'500'
+  },
+  cardNumber:{
+    color:'#767676',
+    fontSize:'14px'
+  },
+  seeBalance:{
+    color:'#4485FD',
+    fontSize:'12px',
+    fontWeight:'600',
+    cursor:"pointer",
+    '&:hover':{
+      textDecoration:'underline'
+    }
+  },
+  blockCardbtn:{
+    background: 'rgba(225, 62, 62, 0.2)',
+    boxShadow:'0 0 0',
+    '&:hover':{
+      boxShadow:'0 0 0',
+      color:'white'
+    },
+    color:'#E13E3E',
+    fontWeight:'600',
+    fontSize:'12px',
+    textTransform:'capitalize',
+    borderRadius:'100px'
   },
   dateTime:{
    display:'flex',
@@ -151,9 +188,9 @@ const useStyles = makeStyles({
         color:'white'
       }
   }
-});
+}))
 
-function CustomizedTablesLoans() {
+function CustomizedTables() {
   const classes = useStyles();
 
   return (
@@ -163,11 +200,10 @@ function CustomizedTablesLoans() {
           <TableRow>
             <StyledTableCell>User</StyledTableCell>
             <StyledTableCell>Status</StyledTableCell>
-            <StyledTableCell>Phone Number</StyledTableCell>
+            <StyledTableCell className={classes.phoneNumberCell}>Phone Number</StyledTableCell>
             <StyledTableCell>Date</StyledTableCell>
-            <StyledTableCell>Form</StyledTableCell>
-            <StyledTableCell>Documents</StyledTableCell>
-            <StyledTableCell>Payment link</StyledTableCell>
+            <StyledTableCell className={classes.cardNumberCell}>Card number</StyledTableCell>
+            <StyledTableCell className={classes.blockBtnCell}>Action</StyledTableCell>
           </TableRow>
         </TableHead>
         <TableBody>
@@ -199,43 +235,27 @@ function CustomizedTablesLoans() {
                    {row.status.status}
                 </Button>
               </StyledTableCell>
-              <StyledTableCell>
+              <StyledTableCell className={classes.phoneNumberCell}>
                 <Typography className={classes.phoneNumber}>{row.phoneNumber}</Typography>
             </StyledTableCell>
             <StyledTableCell>
                 <div className={classes.dateTime}>
-                  <Typography className={classes.date}>{row.date.date}</Typography>
-                  <Typography className={classes.time}>{row.date.time}</Typography>
+                  <Typography className={classes.date}>{row.date}</Typography>
                 </div>
             </StyledTableCell>
-            <StyledTableCell>
-              <span className={classes.downloadBtns} download>
-                      <Icon style={{color:'black',fontSize:'17px',fontWeight:'600'}}>feed</Icon>
-                      <p style={{padding:'0',margin:'0'}} >Download</p>
-              </span>
+            <StyledTableCell className={classes.cardNumberCell}>
+               <Typography className={classes.cardNumber}>{row.cardNumber}</Typography>
+               <Typography className={classes.seeBalance}>See balance</Typography>
             </StyledTableCell>
-            <StyledTableCell>
-              <span className={classes.downloadBtns} download >
-                        <Icon style={{color:'black',fontSize:'17px',fontWeight:'600'}}>feed</Icon>
-                        <p style={{padding:'0',margin:'0'}} >Download</p>
-                </span>
-            </StyledTableCell>
-            <StyledTableCell>
-                {/* <input
-                  className={classes.uploadInput}
-                  accept="image/*"
-                  className={classes.uploadInput}
-                  id="contained-button-file"
-                  multiple
-                  type="file"
-                />
-                <label htmlFor="contained-button-file">
-                    <div className={classes.uploadBtn}>
-                    <Icon style={{color:'black',fontSize:'17px',fontWeight:'600'}}>launch</Icon>
-                    <p style={{padding:'0',margin:'0'}} >Upload</p>
-                    </div>
-                </label> */}
-                <span className={classes.makePaymentLink} >Make payment</span>
+            <StyledTableCell className={classes.blockBtnCell}>
+                <Button
+                variant="contained"
+                color="secondary"
+                className={classes.blockCardbtn}
+                startIcon={<NotInterestedIcon style={{fontSize:'14px'}}/>}
+                 >
+                   Block card
+                </Button> 
             </StyledTableCell>
             </StyledTableRow>
           ))}
@@ -244,4 +264,4 @@ function CustomizedTablesLoans() {
     </TableContainer>
   );
 }
-export default CustomizedTablesLoans
+export default CustomizedTables

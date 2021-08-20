@@ -3,9 +3,14 @@ import EventsPage from "../pages/events_page/events_page"
 import HomePage from "../pages/home_page/home_page"
 import LoansPage from "../pages/loans_page/loans_page"
 import PostsPage from '../pages/posts_page/posts_page'
+import PrepaidCardsPage from "../pages/prepaid_card_page/prepaid_card"
 import SheduleEventPage from "../pages/shedule_event_page/shedule_event_page"
 
 const Routes=[
+    {
+        component:PrepaidCardsPage,
+        path:'/prepaid_cards'
+    },
     {
         component:LoansPage,
         path:'/loans'
