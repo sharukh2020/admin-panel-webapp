@@ -5,8 +5,13 @@ import LoansPage from "../pages/loans_page/loans_page"
 import PostsPage from '../pages/posts_page/posts_page'
 import PrepaidCardsPage from "../pages/prepaid_card_page/prepaid_card"
 import SheduleEventPage from "../pages/shedule_event_page/shedule_event_page"
+import SupportPage from "../pages/support_page/support_page"
 
 const Routes=[
+    {
+        component:SupportPage,
+        path:'/support'
+    },
     {
         component:PrepaidCardsPage,
         path:'/prepaid_cards'
