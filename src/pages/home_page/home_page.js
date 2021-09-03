@@ -7,10 +7,9 @@ import HPRightSection from '../../components/home_page_components/hp_right_secti
 const useStyles=makeStyles((theme)=>{
   return{
     HomePage:{
-        // [theme.breakpoints.down('sm')]:{
-        //   width:window.innerWidth
-        // },
-        // boxSizing:'border-box'
+        [theme.breakpoints.down('sm')]:{
+            width:'90%'
+          }
     },
     heading:{
         fontWeight:'600'

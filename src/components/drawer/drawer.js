@@ -134,6 +134,14 @@ const useStyles = makeStyles((theme) => ({
   content: {
     flexGrow: 1,
     padding: theme.spacing(3),
+    [theme.breakpoints.down('sm')]:{
+      width:'100%',
+      padding:0,
+      paddingTop:theme.spacing(2),
+      display:'flex',
+      justifyContent:'center',
+      alignItems:'center'
+    }
   },
   drawerTopDivider:{
    backgroundColor:'grey'
