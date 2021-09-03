@@ -48,8 +48,12 @@ const useStyles=makeStyles((theme)=>{
                cursor:'pointer'
            },
            [theme.breakpoints.down('md')]:{
-               marginRight:'0'
-           }
+               marginRight:'10px'
+           },
+           [theme.breakpoints.down('sm')]:{
+            marginBottom:'10px',
+            marginRight:'0'
+        },
        },
        byStatusSelect:{   
         width:'130px',
@@ -75,14 +79,6 @@ const useStyles=makeStyles((theme)=>{
 })
 
 function PP_Third_Section(props){
-    // const [admin, setAdmin] = React.useState('');
-    // const handleAdminChange = (event) => {
-    //   setAdmin(event.target.value);
-    // }
-    // const [status, setStatus] = React.useState('');
-    // const handleStatusChange = (event) => {
-    //   setStatus(event.target.value);
-    // };
     const classes=useStyles()
     return(
        <Grid container spacing={2}>

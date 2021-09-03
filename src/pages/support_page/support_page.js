@@ -6,6 +6,11 @@ import CustomizedTables from '../../components/support_page_component/support_pa
 
 const useStyles=makeStyles((theme)=>{
     return{
+          LoansPage:{
+            [theme.breakpoints.down('sm')]:{
+                width:'90%'
+              }
+        },
         firstSection:{
             borderBottom:'3px solid #C4C4C4',
             paddingBottom:'10px'
@@ -125,6 +130,14 @@ const useStyles=makeStyles((theme)=>{
     tableHeading:{
         fontSize:'14px',
         fontWeight:'600'
+    },
+    lastSection:{
+      [theme.breakpoints.only('xs')]:{
+        display:'flex',
+        flexDirection:'column',
+        justifyContent:'center',
+        alignItems:'center'
+      }
     }
     }
   })
@@ -176,7 +189,7 @@ function SupportPage(props){
                    </Grid>
                  </Grid>
                  <Grid item xs={12}>
-                   <Grid container spacing={2}>
+                   <Grid container spacing={2} className={classes.lastSection}>
                        <Grid item xs={12} lg={8} >
                           <CustomizedTables/>
                        </Grid>

@@ -5,7 +5,9 @@ import RecipeReviewCard from '../../components/shedule_event_page/sep_right_sect
 
 const useStyles=makeStyles((theme)=>({
     PostPage:{
-   
+        [theme.breakpoints.down('sm')]:{
+            width:'90%'
+          }
     },
     rightSection:{
         display:'flex',

@@ -38,27 +38,68 @@ const rows = [
   createData({title:'Post 5 title',subheader:'Post 5 subheader'},'User 5','Pending'),
 ];
 
-const useStyles = makeStyles({
-  table: {
-    minWidth: 250,
-  },
-  postCardHeader:{
-      padding:'0'
-  },
-  userCardHeader:{
-    padding:'0'
+const useStyles = makeStyles((theme)=>{
+ return{ 
+   table: {
+    minWidth: 250
   },
   postCard:{
     boxShadow:'0 0',
     borderRadius:'0'
   },
-  userCard:{
-    boxShadow:'0 0'
+  postCardHeader:{
+      padding:'0',
+      [theme.breakpoints.down('sm')]:{
+        position:'relative',
+        width:'100px',
+        height:'60px'
+       }
   },
   postCardAvatar:{
-      borderRadius:'0',
-      width:'60px',
-      height:'60px'
+    borderRadius:'0',
+    width:'60px',
+    height:'60px',
+    [theme.breakpoints.down('sm')]:{
+      display:'none'
+    }
+},
+postCardText1:{
+  [theme.breakpoints.down('sm')]:{
+    position:'absolute',
+    left:'0',
+    top:'0'
+  }
+},
+postCardText2:{
+  [theme.breakpoints.down('sm')]:{
+    position:'absolute',
+    left:'0',
+    top:'20px'
+  }
+},
+  userCard:{
+    boxShadow:'0 0'
+    
+  },
+  userCardHeader:{
+    padding:'0',
+    [theme.breakpoints.down('sm')]:{
+     position:'relative',
+     width:'100px',
+     height:'30px'
+    }
+  },
+  userCardAvatar:{
+    [theme.breakpoints.down('sm')]:{
+      display:'none'
+    }
+  },
+  userCardText:{
+    [theme.breakpoints.down('sm')]:{
+      position:'absolute',
+      left:'0',
+      top:'0'
+    }
   },
   status:{
       color:'#FFB648',
@@ -70,7 +111,7 @@ const useStyles = makeStyles({
         background: 'rgba(255, 172, 50, 0.3)' 
       }
   }
-});
+}});
 
 export default function CustomizedTables() {
   const classes = useStyles();
@@ -101,6 +142,12 @@ export default function CustomizedTables() {
                         classes={{
                             root:classes.postCardHeader
                         }}
+                        titleTypographyProps={
+                          {className:classes.postCardText1}
+                        }
+                        subheaderTypographyProps={
+                          {className:classes.postCardText2}
+                        }
                     />
                 </Card>
               </StyledTableCell>
@@ -108,7 +155,7 @@ export default function CustomizedTables() {
               <Card className={classes.userCard}>
                     <CardHeader
                         avatar={
-                        <Avatar aria-label="recipe">
+                        <Avatar aria-label="recipe" className={classes.userCardAvatar}>
                             
                         </Avatar>
                         }
@@ -116,6 +163,9 @@ export default function CustomizedTables() {
                         classes={{
                             root:classes.userCardHeader
                         }}
+                        titleTypographyProps={
+                          {className:classes.userCardText}
+                        }
                     />
                 </Card>
               </StyledTableCell>

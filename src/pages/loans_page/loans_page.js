@@ -8,6 +8,11 @@ import CustomizedTablesLoans from '../../components/loans_page_components/loans_
 
 const useStyles=makeStyles((theme)=>{
     return{
+        LoansPage:{
+            [theme.breakpoints.down('sm')]:{
+                width:'90%'
+              }
+        },
         secondSection:{
           backgroundColor:'#FFFFFF',
           borderRadius:'5px',

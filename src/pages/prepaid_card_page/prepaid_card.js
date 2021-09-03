@@ -8,6 +8,11 @@ import CustomizedTables from '../../components/prepaid_card_components/prepaid_c
 
 const useStyles=makeStyles((theme)=>{
     return{
+        LoansPage:{
+            [theme.breakpoints.down('sm')]:{
+                width:'90%'
+              }
+        },
         secondSection:{
           backgroundColor:'#FFFFFF',
           borderRadius:'5px',

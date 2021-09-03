@@ -141,8 +141,12 @@ const useStyles = makeStyles((theme) => ({
       display:'flex',
       justifyContent:'center',
       alignItems:'center'
-    }
+    },
+    [theme.breakpoints.only('sm')]:{
+      paddingTop:theme.spacing(4)
+    },
   },
+ 
   drawerTopDivider:{
    backgroundColor:'grey'
   },

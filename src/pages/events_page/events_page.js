@@ -10,6 +10,11 @@ import RecipeReviewCard from '../../components/events_page_components/ep_last_ca
 
 const useStyles=makeStyles((theme)=>{
     return{
+        PostsPage:{
+            [theme.breakpoints.down('sm')]:{
+                width:'90%'
+              }
+        },
         secondSection:{
           backgroundColor:'#FFFFFF',
           borderRadius:'5px'
@@ -111,6 +116,9 @@ const useStyles=makeStyles((theme)=>{
         padding:'15px 20px',
         '&::placeholder':{
             fontSize:'14px'
+        },
+        [theme.breakpoints.only('xs')]:{
+            marginLeft:'10px'
         }
     },
     table1:{
