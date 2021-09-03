@@ -29,6 +29,20 @@ function createData(post, user, status) {
   return { post, user, status };
 }
 
+// const Rows=()=>{
+//   var xhttp = new XMLHttpRequest();
+//   xhttp.onreadystatechange = function() {
+//     if (this.readyState === 4 && this.status === 200) {
+//      console.log(this.responseText) 
+//     }
+//   };
+//   xhttp.open("GET", "https://jsonplaceholder.typicode.com/posts", true);
+//   xhttp.send();
+
+// }
+
+
+
 const rows = [
   createData(
       {
@@ -174,6 +188,7 @@ const useStyles = makeStyles((theme)=>({
 }));
 
 export default function CustomizedTables() {
+  Rows()
   const classes = useStyles();
 
   return (
