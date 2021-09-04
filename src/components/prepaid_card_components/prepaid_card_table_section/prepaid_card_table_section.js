@@ -175,7 +175,10 @@ const useStyles = makeStyles((theme)=>({
   postCardAvatar:{
       width:'30px',
       height:'30px',
-      borderRadius:'50%'
+      borderRadius:'50%',
+      [theme.breakpoints.only('xs')]:{
+        display:'none'
+      }
   },
   status:{
       borderRadius:'50px',
@@ -186,6 +189,10 @@ const useStyles = makeStyles((theme)=>({
       '&:hover':{
         background:'navy',
         color:'white'
+      },
+      [theme.breakpoints.only('xs')]:{
+        padding:'5px',
+        fontSize:'9px'
       }
   }
 }))

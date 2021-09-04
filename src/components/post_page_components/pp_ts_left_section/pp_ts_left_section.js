@@ -94,29 +94,32 @@ const useStyles = makeStyles((theme)=>({
     minWidth: 250,
   },
   tableRow:{
-     marginBottom:'20px'
+     marginBottom:'20px',
+     display:'flex',
+     justifyContent:'space-between',
+     alignItems:'justify'
+  },
+  postCell:{ 
+    width:'50%',
+    display:'flex',
+    justifyContent:'center',
+    alignItems:'center'
   },
   postCard:{
     boxShadow:'0 0',
     borderRadius:'0',
     display:'flex',
-    justifyContent:'center',
-    alignItems:'center',
-    [theme.breakpoints.down('md')]:{
-      justifyContent:'flex-start'
-    }
+    justifyContent:'flex-start',
+    alignItems:'center'
   },
   postCardAvatar:{
     borderRadius:'0',
     width:'60px',
     height:'60px',
     marginRight:'10px',
-    [theme.breakpoints.down('md')]:{
+    [theme.breakpoints.down('sm')]:{
       display:'none'
     }
-  },
-  postCardRightSection:{
-    
   },
   postCardRightSection1:{
     display:'flex',
@@ -135,7 +138,11 @@ const useStyles = makeStyles((theme)=>({
     display:'flex',
     justifyContent:'space-between',
     alignItems:'center',
-    width:'80%'
+    width:'80%',
+    [theme.breakpoints.down('sm')]:{
+      flexDirection:'column',
+      alignItems:'flex-start'
+    }
   },
   postCardText1:{
       color:'#4485FD',
@@ -149,18 +156,41 @@ const useStyles = makeStyles((theme)=>({
   postCardText3:{
      fontSize:'14px'
   },
+  userCell:{
+    width:'25%',
+    display:'flex',
+    justifyContent:'center',
+    alignItems:'center'
+
+  },
   userCard:{
-    boxShadow:'0 0'
+    boxShadow:'0 0',
+    borderRadius:'0',
+    display:'flex',
+    justifyContent:'flex-start',
+    alignItems:'center'
   },
   userCardHeader:{
     padding:'0'
   },
+  userCardTitle:{
+  [theme.breakpoints.down('sm')]:{
+    transform:'translateX(-15px)'
+  }
+
+  },
   useCardAvatar:{
-    [theme.breakpoints.down('md')]:{
+    [theme.breakpoints.down('sm')]:{
       display:'none'
     }
   }
   ,
+  statusCell:{
+    width:'25%',
+   display:'flex',
+   justifyContent:'center',
+   alignItems:'center'
+  },
   status:{
       padding:'1px 8px',
       fontSize:'12px',
@@ -183,7 +213,7 @@ export default function CustomizedTables() {
         <TableBody>
           {rows.map((row,pos) => (
             <StyledTableRow key={pos} className={classes.tableRow}>
-              <StyledTableCell component="th" scope="row">
+              <StyledTableCell component="th" scope="row" className={classes.postCell}>
                 <Card className={classes.postCard}>
                   <Avatar className={classes.postCardAvatar}>
                         p
@@ -203,7 +233,7 @@ export default function CustomizedTables() {
                   </div>
                 </Card>
               </StyledTableCell>
-              <StyledTableCell>
+              <StyledTableCell className={classes.userCell}>
               <Card className={classes.userCard}>
                     <CardHeader
                         avatar={
@@ -212,13 +242,18 @@ export default function CustomizedTables() {
                         </Avatar>
                         }
                         title={row.user}
+                        titleTypographyProps={
+                          {
+                            className:classes.userCardTitle
+                          }
+                        }
                         classes={{
                             root:classes.userCardHeader
                         }}
                     />
                 </Card>
               </StyledTableCell>
-              <StyledTableCell>
+              <StyledTableCell className={classes.statusCell}>
                 <Button variant='contained' className={classes.status} disableElevation>
                    {row.status}
                 </Button>

@@ -38,7 +38,8 @@ const rows = [
   createData('Merril Dinz',{status:'verifying',class:'verifying'},'9999999999',{date:'08.01.2021',time:'2:00 PM'})
 ];
 
-const useStyles = makeStyles({
+const useStyles = makeStyles((theme)=>{
+  return{
   table: {
     minWidth: 250,
   },
@@ -138,7 +139,10 @@ const useStyles = makeStyles({
   postCardAvatar:{
       width:'30px',
       height:'30px',
-      borderRadius:'50%'
+      borderRadius:'50%',
+      [theme.breakpoints.down('md')]:{
+        display:'none'
+      }
   },
   status:{
       borderRadius:'50px',
@@ -150,7 +154,7 @@ const useStyles = makeStyles({
         background:'navy',
         color:'white'
       }
-  }
+  }}
 });
 
 function CustomizedTablesLoans() {

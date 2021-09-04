@@ -118,7 +118,9 @@ const useStyles=makeStyles((theme)=>{
             fontSize:'14px'
         },
         [theme.breakpoints.only('xs')]:{
-            marginLeft:'10px'
+            marginLeft:'10px',
+            padding:'10px',
+            width:'50%'
         }
     },
     table1:{
